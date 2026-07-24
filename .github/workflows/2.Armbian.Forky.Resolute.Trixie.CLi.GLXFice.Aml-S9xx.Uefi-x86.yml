@@ -57,7 +57,7 @@ jobs:
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget
           
-          sudo modprobe f2fs        
+          #sudo modprobe f2fs        
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
           Loop1=$(sudo losetup --find --show /mnt.img)
@@ -65,7 +65,8 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
+          sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 \
+            -n size=64k -l size=64m,lazy-count=1 /dev/github/runner
 
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
