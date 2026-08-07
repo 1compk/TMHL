@@ -8,11 +8,11 @@
 ## 🚀 One-Command Installation
 Open **Termux** and paste this:
 ```bash
-curl -sL https://github.com/1compk/TMHL/raw/refs/heads/main/install.sh | bash
+curl -sL https://github.com/techjarves/termux-hacklab/raw/refs/heads/main/install.sh | bash
 ```
 **Or using wget:**
 ```bash
-wget -O - https://github.com/1compk/TMHL/raw/refs/heads/main/install.sh | bash
+wget -O - https://github.com/techjarves/termux-hacklab/raw/refs/heads/main/install.sh | bash
 ```
 ---
 ## ✨ Features
