@@ -10,7 +10,7 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildDL: https://github.com/1compk/minios/releases/download/dl/${{ env.BuildSource }}
+  BuildDL: https://github.com/1compk/minios/releases/download/dl/zMiniOS.SkyLine.2026.tar.xz
   BuildSource: zMiniOS.SkyLine.2026.tar.xz
   BuildDir: MiniOS.SkyLine.2026
   BaseVersion: Lastest
