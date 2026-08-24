@@ -39,7 +39,7 @@ jobs:
           lscpu | grep -E "Model name|CPU\(s\):"
           sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-           mtools rsync grub-common e2fsprogs lvm2 pv wget
+           mtools rsync grub-common e2fsprogs lvm2 pv wget gettext
           
           #sudo modprobe f2fs
           sudo truncate -s $iMageSize /mnt.img
