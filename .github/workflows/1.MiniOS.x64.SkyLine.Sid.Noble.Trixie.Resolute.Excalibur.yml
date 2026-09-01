@@ -24,14 +24,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ sid, noble, trixie, resolute, excalibur ]
+        release: [ sid, noble, trixie, bookworm, resolute, excalibur ]
         board: [ uefi-x86 ]
         include:
-          - { release: sid, Custom: false }
-          - { release: noble, Custom: false }
-          - { release: trixie, Custom: false }
-          - { release: resolute, Custom: false }
-          - { release: excalibur, Custom: false }
+          - { release: sid, arch: amd64 }
+          - { release: noble, arch: amd64 }
+          - { release: resolute, arch: amd64 }
+          - { release: trixie, arch: amd64, i386 }
+          - { release: bookworm, arch: amd64, i386 }
+          - { release: excalibur, arch: amd64, i386 }
 
     steps:
       - name: Prepare | Init & LVM
@@ -71,7 +72,7 @@ jobs:
            mtools rsync grub-common e2fsprogs lvm2 pv wget gettext gpgv musl \
            shim-signed grub-efi-amd64-bin grub-efi-amd64-signed musl-tools gcc-multilib
 
-          sudo -E bash ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce \
+          sudo -E bash ./minios-cmd -d ${{ matrix.release }} -a ${{ matrix.arch }} -de xfce \
            -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
