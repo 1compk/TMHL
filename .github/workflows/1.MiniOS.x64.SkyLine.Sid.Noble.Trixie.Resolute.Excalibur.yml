@@ -30,9 +30,9 @@ jobs:
           - { release: sid, arch: amd64 }
           - { release: noble, arch: amd64 }
           - { release: resolute, arch: amd64 }
-          - { release: trixie, arch: amd64, i386 }
-          - { release: bookworm, arch: amd64, i386 }
-          - { release: excalibur, arch: amd64, i386 }
+          - { release: trixie, arch: [amd64, i386] }
+          - { release: bookworm, arch: [amd64, i386] }
+          - { release: excalibur, arch: [amd64, i386] }
 
     steps:
       - name: Prepare | Init & LVM
