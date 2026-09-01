@@ -319,7 +319,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo -E apt-get -y install $(curl -fsSL https://ophub.org/ubuntu2404-build-armbian-depends)
+          #sudo -E apt-get -y install $(curl -fsSL https://ophub.org/ubuntu2404-build-armbian-depends)
           sudo -E systemctl daemon-reload
           sudo -E apt-get clean
           sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
