@@ -26,13 +26,11 @@ jobs:
       matrix:
         release: [ sid, noble, trixie, bookworm, resolute, excalibur ]
         board: [ uefi-x86 ]
+        arch: [ amd64 ]
         include:
-          - { release: sid, arch: amd64 }
-          - { release: noble, arch: amd64 }
-          - { release: resolute, arch: amd64 }
-          - { release: trixie, arch: [amd64, i386] }
-          - { release: bookworm, arch: [amd64, i386] }
-          - { release: excalibur, arch: [amd64, i386] }
+          - { release: trixie, arch: i386 }
+          - { release: bookworm, arch: i386 }
+          - { release: excalibur, arch: i386 }
 
     steps:
       - name: Prepare | Init & LVM
