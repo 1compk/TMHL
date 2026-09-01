@@ -28,9 +28,9 @@ jobs:
         board: [ uefi-x86 ]
         arch: [ amd64 ]
         include:
-          - { release: trixie, arch: i386 }
-          - { release: bookworm, arch: i386 }
-          - { release: excalibur, arch: i386 }
+          - { release: trixie, arch: i386, board: uefi-x86 }
+          - { release: bookworm, arch: i386, board: uefi-x86 }
+          - { release: excalibur, arch: i386, board: uefi-x86 }
 
     steps:
       - name: Prepare | Init & LVM
